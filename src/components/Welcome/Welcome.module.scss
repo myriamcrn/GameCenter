@@ -1,0 +1,17 @@
+.welcome {
+  height: 100dvh;
+  width: 100dvw;
+  background-color: #ffd6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-family: "TAN Nimbus";
+    letter-spacing: 2px;
+    color: #ff5757;
+
+    font-size: 80px;
+    text-shadow: 1px 2px #fea2a2;
+  }
+}

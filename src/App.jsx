@@ -1,9 +1,11 @@
-import styles from "./App.module.scss";
+import React from "react";
+import { Welcome } from "./components/Welcome/Welcome";
+import "./App.css";
 
 function App() {
   return (
     <main>
-      <h1 className={styles.test}>Wordle</h1>
+      <Welcome />
     </main>
   );
 }
