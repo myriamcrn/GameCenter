@@ -1,0 +1,12 @@
+.lines {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+
+  div {
+    height: 50px;
+    width: 55px;
+    border: 1.5px solid black;
+    margin-top: 6px;
+  }
+}
