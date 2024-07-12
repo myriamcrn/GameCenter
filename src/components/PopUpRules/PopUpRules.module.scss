@@ -1,0 +1,64 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 150px;
+  right: 560px;
+
+  height: 525px;
+  width: 300px;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: white;
+
+  .close {
+    display: flex;
+    justify-content: end;
+  }
+
+  h1 {
+    font-family: "TAN Nimbus";
+    color: #ff5757;
+    font-size: 27px;
+    text-shadow: 1px 1px #fea2a2;
+    display: flex;
+    justify-content: center;
+    margin: 25px 0px 10px;
+  }
+
+  .text {
+    font-family: "Poppins";
+    margin: 10px;
+    font-size: 10px;
+  }
+
+  .explain {
+    font-family: "Poppins";
+    margin: 10px;
+    font-weight: bold;
+    font-size: 10px;
+  }
+
+  .lines {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: "Poppins";
+    font-size: 40px;
+    margin-left: 10px;
+
+    div {
+      height: 32px;
+      width: 35px;
+      border: 1.5px solid black;
+      margin-top: 18px;
+      font-family: "Poppins";
+      font-size: 25px;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
