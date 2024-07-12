@@ -4,6 +4,7 @@ import { Header } from "./components/Header/Header";
 import { Title } from "./components/Title/Title";
 import { Grid } from "./components/Grid/Grid";
 import "./App.css";
+import { Keyboard } from "./components/Keyboard/Keyboard";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Title />
       <Grid />
+      <Keyboard />
     </main>
   );
 }
