@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Welcome } from "./components/Welcome/Welcome";
 import { Header } from "./components/Header/Header";
 import { Title } from "./components/Title/Title";
@@ -8,14 +8,16 @@ import { Keyboard } from "./components/Keyboard/Keyboard";
 import { PopUpRules } from "./components/PopUpRules/PopUpRules";
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <main>
       <Welcome />
-      <Header />
+      <Header setIsOpen={setIsOpen} isOpen={isOpen} />
       <Title />
       <Grid />
       <Keyboard />
-      <PopUpRules />
+      <PopUpRules setIsOpen={setIsOpen} isOpen={isOpen} />
     </main>
   );
 }
