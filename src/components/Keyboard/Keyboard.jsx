@@ -13,6 +13,10 @@ export const Keyboard = ({ guess, setGuess }) => {
     });
   };
 
+  const handleDelete = () => {
+    setGuess((prevGuess) => prevGuess.slice(0, -1));
+  };
+
   return (
     <div className={styles.lines}>
       <div className={styles.line}>
@@ -43,7 +47,7 @@ export const Keyboard = ({ guess, setGuess }) => {
           ))}
         </div>
         <div className={styles.buttons}>
-          <Delete />
+          <Delete onClick={handleDelete} />
         </div>
       </div>
     </div>
