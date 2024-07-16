@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Welcome } from "./components/Welcome/Welcome";
 import { Header } from "./components/Header/Header";
 import { Title } from "./components/Title/Title";
@@ -9,15 +9,20 @@ import { PopUpRules } from "./components/PopUpRules/PopUpRules";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [guess, setGuess] = useState([]);
+
+  useEffect(() => {
+    console.log(guess, "coucou");
+  }, [guess]);
 
   return (
     <main>
       <Welcome />
-      <Header setIsOpen={setIsOpen} isOpen={isOpen} />
+      <Header isOpen={isOpen} setIsOpen={setIsOpen} />
       <Title />
-      <Grid />
-      <Keyboard />
-      <PopUpRules setIsOpen={setIsOpen} isOpen={isOpen} />
+      <Grid guess={guess} setGuess={setGuess} />
+      <Keyboard guess={guess} setGuess={setGuess} />
+      <PopUpRules isOpen={isOpen} setIsOpen={setIsOpen} />
     </main>
   );
 }
