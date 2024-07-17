@@ -8,13 +8,19 @@ export const Keyboard = ({ guess, setGuess }) => {
 
   const handleClick = (event) => {
     setGuess((prevGuess) => {
+      if (prevGuess.length % 5 === 0 && prevGuess.length !== 0)
+        return prevGuess;
+
       if (prevGuess.length > 24) return prevGuess;
       return [...prevGuess, event.target.textContent];
     });
   };
 
   const handleDelete = () => {
-    setGuess((prevGuess) => prevGuess.slice(0, -1));
+    setGuess((prevGuess) => {
+      if (prevGuess.length % 5 === 0) return prevGuess.slice(0, -1);
+      return prevGuess;
+    });
   };
 
   return (

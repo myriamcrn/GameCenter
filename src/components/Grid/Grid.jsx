@@ -5,9 +5,16 @@ import styles from "./Grid.module.scss";
 export const Grid = ({ guess, setGuess }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
-      console.log(event);
       setGuess((prevGuess) => {
-        if (prevGuess.length > 24 || event.keyCode > 90 || event.keyCode < 65)
+        if (event.keyCode === 8 && prevGuess.length % 5 !== 0)
+          return prevGuess.slice(0, -1);
+
+        if (
+          prevGuess.length > 24 ||
+          event.keyCode > 90 ||
+          event.keyCode < 65 ||
+          (prevGuess.length % 5 === 0 && prevGuess.length !== 0)
+        )
           return prevGuess;
         return [...prevGuess, event.key];
       });
