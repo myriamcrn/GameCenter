@@ -8,17 +8,24 @@ export const Keyboard = ({ guess, setGuess }) => {
 
   const handleClick = (event) => {
     setGuess((prevGuess) => {
-      if (prevGuess.length % 5 === 0 && prevGuess.length !== 0)
-        return prevGuess;
+      if ((prevGuess.length + 1) % 6 === 0) return prevGuess;
 
-      if (prevGuess.length > 24) return prevGuess;
+      if (prevGuess.length > 29) return prevGuess;
       return [...prevGuess, event.target.textContent];
+    });
+  };
+
+  const handleEnter = () => {
+    setGuess((prevGuess) => {
+      if ((prevGuess.length + 1) % 6 === 0) return [...prevGuess, ""];
+      return prevGuess;
     });
   };
 
   const handleDelete = () => {
     setGuess((prevGuess) => {
-      if (prevGuess.length % 5 !== 0) return prevGuess.slice(0, -1);
+      if (prevGuess[prevGuess.length - 1] !== "") return prevGuess.slice(0, -1);
+      // if (prevGuess.length % 5 !== 0) return prevGuess.slice(0, -1);
       return prevGuess;
     });
   };
@@ -43,7 +50,7 @@ export const Keyboard = ({ guess, setGuess }) => {
 
       <div className={styles.lastLine}>
         <div className={styles.buttons}>
-          <CornerDownRight size={25} />
+          <CornerDownRight onClick={handleEnter} size={25} />
         </div>
         <div className={styles.line}>
           {line3.map((value, idx) => (

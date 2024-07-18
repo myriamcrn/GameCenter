@@ -6,14 +6,17 @@ export const Grid = ({ guess, setGuess }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       setGuess((prevGuess) => {
-        if (event.keyCode === 8 && prevGuess.length % 5 !== 0)
+        if (event.keyCode === 8 && prevGuess[prevGuess.length - 1] !== "")
           return prevGuess.slice(0, -1);
 
+        if (event.keyCode === 13 && (prevGuess.length + 1) % 6 === 0)
+          return [...prevGuess, ""];
+
         if (
-          prevGuess.length > 24 ||
+          prevGuess.length > 29 ||
           event.keyCode > 90 ||
           event.keyCode < 65 ||
-          (prevGuess.length % 5 === 0 && prevGuess.length !== 0)
+          (prevGuess.length + 1) % 6 === 0
         )
           return prevGuess;
         return [...prevGuess, event.key];
