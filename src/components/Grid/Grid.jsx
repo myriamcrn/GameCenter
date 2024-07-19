@@ -2,15 +2,18 @@ import { useEffect } from "react";
 import { Line } from "../Line/Line";
 import styles from "./Grid.module.scss";
 
-export const Grid = ({ guess, setGuess }) => {
+export const Grid = ({ guess, setGuess, setIsEndingPopup, word }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       setGuess((prevGuess) => {
         if (event.keyCode === 8 && prevGuess[prevGuess.length - 1] !== "")
           return prevGuess.slice(0, -1);
 
-        if (event.keyCode === 13 && (prevGuess.length + 1) % 6 === 0)
+        if (event.keyCode === 13 && (prevGuess.length + 1) % 6 === 0) {
+          const guessed = prevGuess.join("").slice(-5);
+          if (guessed === word) setIsEndingPopup(true);
           return [...prevGuess, ""];
+        }
 
         if (
           prevGuess.length > 29 ||
