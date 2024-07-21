@@ -20,14 +20,15 @@ export const Keyboard = ({ guess, setGuess, word, setIsEndingPopup }) => {
       const guessed = prevGuess.join("").slice(-5);
       if (guessed === word) setIsEndingPopup(true);
 
-      if ((prevGuess.length + 1) % 6 === 0) return [...prevGuess, ""];
+      if ((prevGuess.length + 1) % 6 === 0) return [...prevGuess, "-"];
       return prevGuess;
     });
   };
 
   const handleDelete = () => {
     setGuess((prevGuess) => {
-      if (prevGuess[prevGuess.length - 1] !== "") return prevGuess.slice(0, -1);
+      if (prevGuess[prevGuess.length - 1] !== "-")
+        return prevGuess.slice(0, -1);
       return prevGuess;
     });
   };

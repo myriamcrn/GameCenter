@@ -12,7 +12,7 @@ export const Grid = ({ guess, setGuess, setIsEndingPopup, word }) => {
         if (event.keyCode === 13 && (prevGuess.length + 1) % 6 === 0) {
           const guessed = prevGuess.join("").slice(-5);
           if (guessed === word) setIsEndingPopup(true);
-          return [...prevGuess, ""];
+          return [...prevGuess, "-"];
         }
 
         if (
@@ -35,11 +35,11 @@ export const Grid = ({ guess, setGuess, setIsEndingPopup, word }) => {
 
   return (
     <section className={styles.grid}>
-      <Line l={0} guess={guess} />
-      <Line l={1} guess={guess} />
-      <Line l={2} guess={guess} />
-      <Line l={3} guess={guess} />
-      <Line l={4} guess={guess} />
+      <Line l={0} guess={guess} word={word} />
+      <Line l={1} guess={guess} word={word} />
+      <Line l={2} guess={guess} word={word} />
+      <Line l={3} guess={guess} word={word} />
+      <Line l={4} guess={guess} word={word} />
     </section>
   );
 };
