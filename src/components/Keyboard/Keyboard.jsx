@@ -1,10 +1,10 @@
-import styles from "./Keyboard.module.scss";
-import { CornerDownRight, Delete } from "lucide-react";
+import styles from './Keyboard.module.scss';
+import { CornerDownRight, Delete } from 'lucide-react';
 
-export const Keyboard = ({ guess, setGuess, word, setIsEndingPopup }) => {
-  const line1 = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
-  const line2 = ["a", "s", "d", "f", "g", "h", "j", "k", "l"];
-  const line3 = ["z", "x", "c", "v", "b", "n", "m"];
+export const Keyboard = ({ setGuess, word, setIsEndingPopup }) => {
+  const line1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
+  const line2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
+  const line3 = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
   const handleClick = (event) => {
     setGuess((prevGuess) => {
@@ -17,17 +17,17 @@ export const Keyboard = ({ guess, setGuess, word, setIsEndingPopup }) => {
 
   const handleEnter = () => {
     setGuess((prevGuess) => {
-      const guessed = prevGuess.join("").slice(-5);
+      const guessed = prevGuess.join('').slice(-5);
       if (guessed === word) setIsEndingPopup(true);
 
-      if ((prevGuess.length + 1) % 6 === 0) return [...prevGuess, "-"];
+      if ((prevGuess.length + 1) % 6 === 0) return [...prevGuess, '-'];
       return prevGuess;
     });
   };
 
   const handleDelete = () => {
     setGuess((prevGuess) => {
-      if (prevGuess[prevGuess.length - 1] !== "-")
+      if (prevGuess[prevGuess.length - 1] !== '-')
         return prevGuess.slice(0, -1);
       return prevGuess;
     });

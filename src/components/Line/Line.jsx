@@ -17,20 +17,24 @@ export const Line = ({ l, guess, word }) => {
 
   useEffect(() => {
     const lettersColors = () => {
-      let tmpWord = word;
-
       let i = 0;
-      while (i < ref.current.children.length) {
-        const letter = ref.current.children[i].textContent;
-        if (tmpWord.includes(letter) && tmpWord[i] === letter) {
-          ref.current.children[i].classList.add(styles.green);
+      let tmpWord = word;
+      const children = ref.current.children;
+
+      while (i < children.length) {
+        const letter = children[i].textContent;
+
+        if (tmpWord[i] === letter) {
+          children[i].classList.add(styles.green);
           tmpWord = tmpWord.replace(letter, '-');
         }
         i++;
       }
+
       i = 0;
       while (i < ref.current.children.length) {
         const letter = ref.current.children[i].textContent;
+
         if (tmpWord.includes(letter)) {
           ref.current.children[i].classList.add(styles.orange);
           tmpWord = tmpWord.replace(letter, '-');
@@ -52,11 +56,3 @@ export const Line = ({ l, guess, word }) => {
     </div>
   );
 };
-
-// if (!test(guess.join('').substring(0 + l * 6, 6 + l * 6))) return;
-
-// if (word.includes(letter)) {
-//   if (word[position] === letter) return styles.green;
-//   return styles.orange;
-// }
-// return styles.grey;
