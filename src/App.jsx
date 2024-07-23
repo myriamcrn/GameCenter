@@ -16,7 +16,9 @@ function App() {
   const [word] = useState(words[Math.floor(Math.random() * words.length)]);
 
   useEffect(() => {
-    console.log(guess, 'coucou');
+    if (guess.length > 29) {
+      setIsEndingPopup(true);
+    }
   }, [guess]);
 
   return (
@@ -37,6 +39,8 @@ function App() {
       />
       <PopUpRules isOpen={isOpen} setIsOpen={setIsOpen} />
       <EndingPopup
+        guess={guess}
+        word={word}
         isEndingPopup={isEndingPopup}
         setIsEndingPopup={setIsEndingPopup}
       />

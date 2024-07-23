@@ -11,8 +11,10 @@ export const Grid = ({ guess, setGuess, setIsEndingPopup, word }) => {
 
         if (event.keyCode === 13 && (prevGuess.length + 1) % 6 === 0) {
           const guessed = prevGuess.join('').slice(-5);
-          if (guessed.toUpperCase() === word.toUpperCase())
+          if (guessed === word) {
             setIsEndingPopup(true);
+            return prevGuess;
+          }
           return [...prevGuess, '-'];
         }
 
@@ -23,7 +25,7 @@ export const Grid = ({ guess, setGuess, setIsEndingPopup, word }) => {
           (prevGuess.length + 1) % 6 === 0
         )
           return prevGuess;
-        return [...prevGuess, event.key];
+        return [...prevGuess, event.key.toUpperCase()];
       });
     };
 
