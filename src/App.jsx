@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Welcome } from './components/Welcome/Welcome';
-import { Header } from './components/Header/Header';
-import { Title } from './components/Title/Title';
-import { Grid } from './components/Grid/Grid';
 import './App.css';
-import { Keyboard } from './components/Keyboard/Keyboard';
-import { PopUpRules } from './components/PopUpRules/PopUpRules';
-import { EndingPopup } from './components/EndingPopup/EndingPopup';
 import { words } from './assets/word';
+import {
+  EndingPopup,
+  Grid,
+  Header,
+  Keyboard,
+  PopUpRules,
+  Title,
+  Welcome,
+} from './components';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +18,9 @@ function App() {
   const [word] = useState(words[Math.floor(Math.random() * words.length)]);
 
   useEffect(() => {
-    console.log(guess, 'coucou');
+    if (guess.length > 29) {
+      setIsEndingPopup(true);
+    }
   }, [guess]);
 
   return (
@@ -37,6 +41,8 @@ function App() {
       />
       <PopUpRules isOpen={isOpen} setIsOpen={setIsOpen} />
       <EndingPopup
+        guess={guess}
+        word={word}
         isEndingPopup={isEndingPopup}
         setIsEndingPopup={setIsEndingPopup}
       />

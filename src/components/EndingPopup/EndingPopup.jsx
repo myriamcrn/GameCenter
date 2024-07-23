@@ -1,31 +1,40 @@
 // import styles from "./EndingPopup.module.scss";
-import { CircleX } from "lucide-react";
-import styles from "../PopUpRules/PopUpRules.module.scss";
-import { useEffect, useRef } from "react";
+import { CircleX } from 'lucide-react';
+import styles from '../PopUpRules/PopUpRules.module.scss';
+import { useEffect, useRef, useState } from 'react';
 
-export const EndingPopup = ({ isEndingPopup, setIsEndingPopup }) => {
+export const EndingPopup = ({
+  isEndingPopup,
+  setIsEndingPopup,
+  guess,
+  word,
+}) => {
   const ref = useRef(null);
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const handleClick = () => {
     setIsEndingPopup(!isEndingPopup);
   };
 
   useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
     function handleClickOutside(event) {
       if (!ref.current) return;
       if (!ref.current.contains(event.target)) {
         setIsEndingPopup(false);
       }
     }
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, setIsEndingPopup]);
+
+  useEffect(() => {
+    if (guess) {
+      const guessed = guess.join('').slice(-5);
+      if (guessed === word) setIsSuccess(true);
+    }
+  }, [guess, isSuccess, word]);
 
   return (
     <>
@@ -35,7 +44,12 @@ export const EndingPopup = ({ isEndingPopup, setIsEndingPopup }) => {
             <div className={styles.close}>
               <CircleX onClick={handleClick} />
             </div>
-            <h1>Comment jouer ?</h1>
+            <h1>{isSuccess ? 'BRAVO !' : 'DOMMAGE !'}</h1>
+            <h3>
+              {isSuccess ? 'Tu as touvé le mot' : 'Le mot a trouvé etait'}
+            </h3>
+            <p>{word}</p>
+            <button>Definition</button>
           </div>
         </div>
       )}

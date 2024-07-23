@@ -1,9 +1,9 @@
 export const words = [
-  'Avion',
-  'Velos',
-  'Maman',
-  'Neige',
-  'Lundi',
-  'Mardi',
-  'Table',
+  'AVION',
+  'VELOS',
+  'MAMAN',
+  'NEIGE',
+  'LUNDI',
+  'MARDI',
+  'TABLE',
 ];

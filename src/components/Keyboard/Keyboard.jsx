@@ -11,17 +11,19 @@ export const Keyboard = ({ setGuess, word, setIsEndingPopup }) => {
       if ((prevGuess.length + 1) % 6 === 0) return prevGuess;
 
       if (prevGuess.length > 29) return prevGuess;
-      return [...prevGuess, event.target.textContent];
+      return [...prevGuess, event.target.textContent.toUpperCase()];
     });
   };
 
   const handleEnter = () => {
     setGuess((prevGuess) => {
       const guessed = prevGuess.join('').slice(-5);
-      if (guessed === word) setIsEndingPopup(true);
+      if (guessed === word) {
+        setIsEndingPopup(true);
+        return prevGuess;
+      }
 
       if ((prevGuess.length + 1) % 6 === 0) return [...prevGuess, '-'];
-      return prevGuess;
     });
   };
 
