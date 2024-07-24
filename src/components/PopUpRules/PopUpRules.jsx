@@ -1,6 +1,6 @@
-import { CircleX } from "lucide-react";
-import styles from "./PopUpRules.module.scss";
-import { useEffect, useRef } from "react";
+import { CircleX } from 'lucide-react';
+import styles from './PopUpRules.module.scss';
+import { useEffect, useRef } from 'react';
 
 export const PopUpRules = ({ setIsOpen, isOpen }) => {
   const ref = useRef(null);
@@ -10,20 +10,15 @@ export const PopUpRules = ({ setIsOpen, isOpen }) => {
   };
 
   useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
     function handleClickOutside(event) {
       if (!ref.current) return;
       if (!ref.current.contains(event.target)) {
         setIsOpen(false);
       }
     }
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [ref]);
 
@@ -49,24 +44,24 @@ export const PopUpRules = ({ setIsOpen, isOpen }) => {
             </p>
             <div className={styles.lines}>
               <div>R</div>
-              <div style={{ backgroundColor: "#00BF63" }}>O</div>
+              <div style={{ backgroundColor: '#00BF63' }}>O</div>
               <div>B</div>
               <div>O</div>
               <div>T</div>
             </div>
             <p className={styles.explain}>
-              La lettre <span style={{ color: "#00BF63" }}>O</span> est dans le
+              La lettre <span style={{ color: '#00BF63' }}>O</span> est dans le
               mot, à la bonne place.
             </p>
             <div className={styles.lines}>
-              <div style={{ backgroundColor: "#FF914D" }}>M</div>
+              <div style={{ backgroundColor: '#FF914D' }}>M</div>
               <div>A</div>
               <div>N</div>
               <div>G</div>
               <div>E</div>
             </div>
             <p className={styles.explain}>
-              La lettre <span style={{ color: "#FF914D" }}>M</span> est dans le
+              La lettre <span style={{ color: '#FF914D' }}>M</span> est dans le
               mot, mais pas à la bonne place.
             </p>
             <div className={styles.lines}>
@@ -74,11 +69,11 @@ export const PopUpRules = ({ setIsOpen, isOpen }) => {
               <div>O</div>
               <div>L</div>
               <div>E</div>
-              <div style={{ backgroundColor: "#545454" }}>T</div>
+              <div style={{ backgroundColor: '#545454' }}>T</div>
             </div>
             <p className={styles.explain}>
-              La lettre <span style={{ color: "#545454" }}>T</span> n'est pas
-              dans le mot.
+              La lettre <span style={{ color: '#545454' }}>T</span>
+              {" n'est pas dans le mot."}
             </p>
           </div>
         </div>

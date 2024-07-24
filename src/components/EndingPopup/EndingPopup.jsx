@@ -1,6 +1,5 @@
-// import styles from "./EndingPopup.module.scss";
+import styles from './EndingPopup.module.scss';
 import { CircleX } from 'lucide-react';
-import styles from '../PopUpRules/PopUpRules.module.scss';
 import { useEffect, useRef, useState } from 'react';
 
 export const EndingPopup = ({
@@ -49,7 +48,12 @@ export const EndingPopup = ({
               {isSuccess ? 'Tu as touvé le mot' : 'Le mot a trouvé etait'}
             </h3>
             <p>{word}</p>
-            <button>Definition</button>
+            <a
+              href={`https://www.larousse.fr/dictionnaires/francais/${word.toLowerCase()}`}
+              target="_blank"
+            >
+              Definition
+            </a>
           </div>
         </div>
       )}

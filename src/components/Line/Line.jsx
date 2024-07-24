@@ -2,16 +2,23 @@ import clsx from 'clsx';
 import styles from './Line.module.scss';
 import { useEffect, useRef } from 'react';
 
-export const Line = ({ l, guess, word }) => {
+export const Line = ({ l, guess, word, setIsEndingPopup }) => {
   const ref = useRef(null);
 
   const test = (str) => {
     let i = 0;
+    if (str.length !== 6) return false;
+
+    if (str.substring(0, 5) === word) {
+      setIsEndingPopup(true);
+      return true;
+    }
+
     while (i < str.length - 1) {
       if (!str[i].match(/[a-z]/i)) return false;
       i++;
     }
-    if (str[i] !== '-') return false;
+    if (str[i] !== '-' && str[i] !== '+') return false;
     return true;
   };
 
@@ -42,9 +49,8 @@ export const Line = ({ l, guess, word }) => {
         i++;
       }
     };
-
     if (test(guess.join('').substring(0 + l * 6, 6 + l * 6))) lettersColors();
-  }, [guess, l, word]);
+  }, [guess, l]);
 
   return (
     <div className={styles.lines} ref={ref}>
