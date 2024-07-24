@@ -34,11 +34,7 @@ function App() {
         setIsEndingPopup={setIsEndingPopup}
         word={word}
       />
-      <Keyboard
-        setGuess={setGuess}
-        setIsEndingPopup={setIsEndingPopup}
-        word={word}
-      />
+      <Keyboard setGuess={setGuess} word={word} />
       <PopUpRules isOpen={isOpen} setIsOpen={setIsOpen} />
       <EndingPopup
         guess={guess}

@@ -1,6 +1,5 @@
-// import styles from "./EndingPopup.module.scss";
+import styles from './EndingPopup.module.scss';
 import { CircleX } from 'lucide-react';
-import styles from '../PopUpRules/PopUpRules.module.scss';
 import { useEffect, useRef, useState } from 'react';
 
 export const EndingPopup = ({
