@@ -48,7 +48,12 @@ export const EndingPopup = ({
               {isSuccess ? 'Tu as touvé le mot' : 'Le mot a trouvé etait'}
             </h3>
             <p>{word}</p>
-            <button>Definition</button>
+            <a
+              href={`https://www.larousse.fr/dictionnaires/francais/${word.toLowerCase()}`}
+              target="_blank"
+            >
+              Definition
+            </a>
           </div>
         </div>
       )}
