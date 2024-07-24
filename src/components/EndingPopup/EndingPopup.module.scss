@@ -10,14 +10,16 @@
 .popup {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   //   top: 150px;
   //   right: 560px;
   height: 525px;
   width: 300px;
-  border: 2px solid black;
+  border: 1.5px solid black;
   border-radius: 20px;
   padding: 10px;
-  background-color: white;
+  background-color: #ffd6f6;
 
   .close {
     display: flex;
@@ -26,23 +28,45 @@
   }
 
   h1 {
-    font-family: 'TAN Nimbus';
+    font-family: "TAN Nimbus";
     color: #ff5757;
-    font-size: 27px;
+    font-size: 40px;
     text-shadow: 1px 1px #fea2a2;
     display: flex;
     justify-content: center;
     margin: 25px 0px 10px;
+    letter-spacing: 2px;
+  }
+
+  h3 {
+    font-family: "TAN Nimbus";
+    color: #ff5757;
+    text-shadow: 1px 1px #fea2a2;
+    display: flex;
+    justify-content: center;
+  }
+
+  a {
+    height: 30px;
+    width: 150px;
+    background-color: #ff5757;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    color: white;
+    font-family: poppins;
+    margin-top: 20px;
   }
 
   .text {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     margin: 10px;
     font-size: 10px;
   }
 
   .explain {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     margin: 10px;
     font-weight: bold;
     font-size: 10px;
@@ -52,7 +76,7 @@
     display: flex;
     align-items: center;
     gap: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-size: 40px;
     margin-left: 10px;
 
@@ -61,7 +85,7 @@
       width: 35px;
       border: 1.5px solid black;
       margin-top: 18px;
-      font-family: 'Poppins';
+      font-family: "Poppins";
       font-size: 25px;
       font-weight: 700;
       display: flex;

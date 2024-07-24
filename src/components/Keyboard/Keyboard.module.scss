@@ -1,5 +1,5 @@
 .lines {
-  margin-top: 40px;
+  margin-top: 30px;
 
   .lastLine {
     display: flex;
@@ -17,12 +17,11 @@
       align-items: center;
       justify-content: center;
       padding: 10px;
-      background-color: #ffd6f6;
-      height: 30px;
-      width: 15px;
+      background-color: #ff5757;
+      height: 20px;
+      width: 7px;
       border-radius: 9px;
-      font-size: 25px;
-      color: black;
+      font-size: black;
       font-family: "Poppins";
       text-transform: uppercase;
       font-weight: 300;
@@ -34,10 +33,10 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: #ffd6f6;
+    background-color: #ff5757;
     border-radius: 9px;
     box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
-    height: 30px;
-    width: 40px;
+    height: 20px;
+    width: 30px;
   }
 }

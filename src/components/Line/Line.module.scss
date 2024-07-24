@@ -4,26 +4,26 @@
   justify-content: center;
 
   .grey {
-    background-color: #545454;
+    background-color: #d9d9d9;
   }
 
   .orange {
-    background-color: #ff914d;
+    background-color: #ffbd59;
   }
 
   .green {
-    background-color: #00bf63;
+    background-color: #c1ff72;
   }
 
   .box {
-    height: 50px;
-    width: 55px;
+    height: 40px;
+    width: 45px;
     border: 1.5px solid black;
     margin-top: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 30px;
     text-transform: uppercase;
     font-family: "Poppins";
     font-weight: 600;
