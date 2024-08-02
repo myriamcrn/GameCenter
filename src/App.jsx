@@ -15,7 +15,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [guess, setGuess] = useState([]);
   const [isEndingPopup, setIsEndingPopup] = useState(false);
-  const [word] = useState(words[Math.floor(Math.random() * words.length)]);
+  const [word] = useState(words[new Date().getDate() - 1]);
 
   useEffect(() => {
     if (guess.length > 29) {
