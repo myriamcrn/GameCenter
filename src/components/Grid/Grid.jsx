@@ -44,7 +44,7 @@ export const Grid = ({
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [setGuess, word]);
+  }, [notInWord, setGuess, word]);
 
   return (
     <section className={styles.grid}>

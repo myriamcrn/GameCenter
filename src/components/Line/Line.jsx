@@ -5,38 +5,38 @@ import { useEffect, useRef } from 'react';
 export const Line = ({ l, guess, word, setIsEndingPopup, setNotInWord }) => {
   const ref = useRef(null);
 
-  const test = (str) => {
-    let i = 0;
-    if (str.length !== 6) return false;
-
-    if (str.substring(0, 5) === word) {
-      setIsEndingPopup(true);
-      return true;
-    }
-
-    while (i < str.length - 1) {
-      if (!str[i].match(/[a-z]/i)) return false;
-      i++;
-    }
-    if (str[i] !== '-' && str[i] !== '+') return false;
-    let notInWordArray = [];
-    i = 0;
-    while (i < str.length - 1) {
-      if (!word.includes(str[i])) notInWordArray.push(str[i]);
-      i++;
-    }
-
-    notInWordArray.map((letter) => {
-      setNotInWord((prev) => {
-        if (prev.includes(letter)) return prev;
-        return [...prev, letter];
-      });
-    });
-
-    return true;
-  };
-
   useEffect(() => {
+    const test = (str) => {
+      let i = 0;
+      if (str.length !== 6) return false;
+
+      if (str.substring(0, 5) === word) {
+        setIsEndingPopup(true);
+        return true;
+      }
+
+      while (i < str.length - 1) {
+        if (!str[i].match(/[a-z]/i)) return false;
+        i++;
+      }
+      if (str[i] !== '-' && str[i] !== '+') return false;
+      let notInWordArray = [];
+      i = 0;
+      while (i < str.length - 1) {
+        if (!word.includes(str[i])) notInWordArray.push(str[i]);
+        i++;
+      }
+
+      notInWordArray.map((letter) => {
+        setNotInWord((prev) => {
+          if (prev.includes(letter)) return prev;
+          return [...prev, letter];
+        });
+      });
+
+      return true;
+    };
+
     const lettersColors = () => {
       let i = 0;
       let tmpWord = word;
@@ -64,7 +64,7 @@ export const Line = ({ l, guess, word, setIsEndingPopup, setNotInWord }) => {
       }
     };
     if (test(guess.join('').substring(0 + l * 6, 6 + l * 6))) lettersColors();
-  }, [guess, l, test, word]);
+  }, [guess, l, setIsEndingPopup, setNotInWord, word]);
 
   return (
     <div className={styles.lines} ref={ref}>
