@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import styles from './Line.module.scss';
 import { useEffect, useRef } from 'react';
 
-export const Line = ({ l, guess, word, setIsEndingPopup }) => {
+export const Line = ({ l, guess, word, setIsEndingPopup, setNotInWord }) => {
   const ref = useRef(null);
 
   const test = (str) => {
@@ -19,6 +19,20 @@ export const Line = ({ l, guess, word, setIsEndingPopup }) => {
       i++;
     }
     if (str[i] !== '-' && str[i] !== '+') return false;
+    let notInWordArray = [];
+    i = 0;
+    while (i < str.length - 1) {
+      if (!word.includes(str[i])) notInWordArray.push(str[i]);
+      i++;
+    }
+
+    notInWordArray.map((letter) => {
+      setNotInWord((prev) => {
+        if (prev.includes(letter)) return prev;
+        return [...prev, letter];
+      });
+    });
+
     return true;
   };
 
@@ -50,7 +64,7 @@ export const Line = ({ l, guess, word, setIsEndingPopup }) => {
       }
     };
     if (test(guess.join('').substring(0 + l * 6, 6 + l * 6))) lettersColors();
-  }, [guess, l]);
+  }, [guess, l, test, word]);
 
   return (
     <div className={styles.lines} ref={ref}>

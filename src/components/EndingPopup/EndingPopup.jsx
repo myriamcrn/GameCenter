@@ -1,6 +1,6 @@
-import styles from "./EndingPopup.module.scss";
-import { CircleX } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import styles from './EndingPopup.module.scss';
+import { CircleX } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 export const EndingPopup = ({
   isEndingPopup,
@@ -22,15 +22,15 @@ export const EndingPopup = ({
         setIsEndingPopup(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [ref, setIsEndingPopup]);
 
   useEffect(() => {
     if (guess) {
-      const guessed = guess.join("").slice(-5);
+      const guessed = guess.join('').slice(-5);
       if (guessed === word) setIsSuccess(true);
     }
   }, [guess, isSuccess, word]);
@@ -43,9 +43,13 @@ export const EndingPopup = ({
             <div className={styles.close}>
               <CircleX onClick={handleClick} />
             </div>
-            <h1>{isSuccess ? "Bravo !" : "Dommage !"}</h1>
-            <h3>{isSuccess ? "Tu as touvé le mot" : "Le mot a trouvé été"}</h3>
-            <p>{word}</p>
+            <h1>{isSuccess ? 'Bravo !' : 'Dommage !'}</h1>
+            <h3>{isSuccess ? 'Tu as touvé le mot' : 'Le mot a trouvé été'}</h3>
+            <div className={styles.word}>
+              {word.split('').map((letter, idx) => (
+                <p key={`${idx}-${letter}`}>{letter}</p>
+              ))}
+            </div>
             <a
               href={`https://www.larousse.fr/dictionnaires/francais/${word.toLowerCase()}`}
               target="_blank"

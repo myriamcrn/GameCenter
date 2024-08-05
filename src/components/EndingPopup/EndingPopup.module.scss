@@ -28,7 +28,7 @@
   }
 
   h1 {
-    font-family: "TAN Nimbus";
+    font-family: 'TAN Nimbus';
     color: #ff5757;
     font-size: 40px;
     text-shadow: 1px 1px #fea2a2;
@@ -39,7 +39,7 @@
   }
 
   h3 {
-    font-family: "TAN Nimbus";
+    font-family: 'TAN Nimbus';
     color: #ff5757;
     text-shadow: 1px 1px #fea2a2;
     display: flex;
@@ -60,13 +60,13 @@
   }
 
   .text {
-    font-family: "Poppins";
+    font-family: 'Poppins';
     margin: 10px;
     font-size: 10px;
   }
 
   .explain {
-    font-family: "Poppins";
+    font-family: 'Poppins';
     margin: 10px;
     font-weight: bold;
     font-size: 10px;
@@ -76,7 +76,7 @@
     display: flex;
     align-items: center;
     gap: 9px;
-    font-family: "Poppins";
+    font-family: 'Poppins';
     font-size: 40px;
     margin-left: 10px;
 
@@ -85,12 +85,23 @@
       width: 35px;
       border: 1.5px solid black;
       margin-top: 18px;
-      font-family: "Poppins";
+      font-family: 'Poppins';
       font-size: 25px;
       font-weight: 700;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+  }
+}
+
+.word {
+  display: flex;
+  gap: 5px;
+
+  p {
+    padding: 5px;
+    background-color: aliceblue;
+    border: 1px solid black;
   }
 }

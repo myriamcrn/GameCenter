@@ -16,6 +16,7 @@ function App() {
   const [guess, setGuess] = useState([]);
   const [isEndingPopup, setIsEndingPopup] = useState(false);
   const [word] = useState(words[new Date().getDate() - 1]);
+  const [notInWord, setNotInWord] = useState([]);
 
   useEffect(() => {
     if (guess.length > 29) {
@@ -33,8 +34,10 @@ function App() {
         setGuess={setGuess}
         setIsEndingPopup={setIsEndingPopup}
         word={word}
+        notInWord={notInWord}
+        setNotInWord={setNotInWord}
       />
-      <Keyboard setGuess={setGuess} word={word} />
+      <Keyboard setGuess={setGuess} word={word} notInWord={notInWord} />
       <PopUpRules isOpen={isOpen} setIsOpen={setIsOpen} />
       <EndingPopup
         guess={guess}
